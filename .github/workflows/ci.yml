@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker images
+        run: docker compose build
+
+      - name: Validate docker compose
+        run: docker compose config
+
+      - name: Start environment
+        run: docker compose up -d
+
+      - name: Wait for API startup
+        run: sleep 10
+
+      - name: Healthcheck API
+        run: |
+          curl -fsS http://localhost:8080/health
+
+      - name: Test validate-md5 endpoint
+        run: |
+          curl -fsS \
+            -X POST \
+            http://localhost:8080/validate-md5 \
+            -H "Content-Type: application/json" \
+            -d '{
+              "payload": {
+                "empresa":"UrbeTrack",
+                "name":"Paulo"
+              },
+              "md5": "8ddf45693d4185b95732d263fade0be2"
+            }'
+
+      - name: Stop environment
+        if: always()
+        run: docker compose down
