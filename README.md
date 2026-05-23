@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a REST API to validate MD5 hashes generated from a JSON input.
+This project implements a REST API to validate at the same time if a MD5 hash is OK with the JSON input recieved.
 
 The solution uses FastAPI and includes:
 
@@ -14,12 +14,27 @@ The solution uses FastAPI and includes:
 - GitHub Actions CI workflow
 - Check Health
 
+### Instalación y ejecución
 
+```bash
+# 1. Clonar el repositorio
+git clone PF-dev0ps/urbetrack-md5-challenge.git
+cd urbetrack-md5-challenge
 
-## 🚀 Inicio rápido
+# 2. Levantar el servicio
+docker compose up -d
 
+# 3. Verificar que funciona
+curl http://localhost:8080/health
 
-
+# 4. Probar el endpoint
+curl -X POST http://localhost:8080/validar_mensaje \
+  -H "Content-Type: application/json" \
+  -d '{
+    "payload": {"empresa":"UrbeTrack", "name":"Paulo"},
+    "md5": "8ddf45693d4185b95732d263fade0be2"
+  }'
+```
 ---
 
 # Architecture
