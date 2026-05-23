@@ -20,8 +20,8 @@ The solution uses FastAPI and includes:
 
 ### 1. Clonar e instalar
 ```bash
-git clone https://github.com/tu-usuario/mi-solucion.git
-cd mi-solucion
+git clone https://github.com/PF-dev0ps/urbetrack-md5-challenge.git
+cd urbetrack-md5-challenge
 npm install
 ```
 ---
