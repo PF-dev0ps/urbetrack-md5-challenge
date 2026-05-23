@@ -14,15 +14,26 @@ The solution uses FastAPI and includes:
 - GitHub Actions CI workflow
 - Check Health
 
+### Instalación y ejecución
 
-
-## Quick start:
-
-### 1. Clonar e instalar
 ```bash
-git clone https://github.com/PF-dev0ps/urbetrack-md5-challenge.git
+# 1. Clonar el repositorio
+git clone PF-dev0ps/urbetrack-md5-challenge.git
 cd urbetrack-md5-challenge
-npm install
+
+# 2. Levantar el servicio
+docker compose up -d
+
+# 3. Verificar que funciona
+curl http://localhost:8080/health
+
+# 4. Probar el endpoint
+curl -X POST http://localhost:8080/validar_mensaje \
+  -H "Content-Type: application/json" \
+  -d '{
+    "payload": {"empresa":"UrbeTrack", "name":"Paulo"},
+    "md5": "8ddf45693d4185b95732d263fade0be2"
+  }'
 ```
 ---
 
