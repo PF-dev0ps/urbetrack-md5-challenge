@@ -23,7 +23,7 @@ The solution uses FastAPI and includes:
 git clone https://github.com/tu-usuario/mi-solucion.git
 cd mi-solucion
 npm install
-
+```
 ---
 
 # Architecture
