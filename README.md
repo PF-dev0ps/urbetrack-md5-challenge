@@ -1,4 +1,4 @@
-# Urbetrack MD5 Challenge**WORKING-PROGRESS
+# * Urbetrack MD5 Challenge *
 
 ## Overview
 
@@ -14,7 +14,12 @@ The solution uses FastAPI and includes:
 - GitHub Actions CI workflow
 - Check Health
 
-This challenge is not only to provide a working API, it’s also for a demonstration of DevOps/SRE-oriented position.
+
+
+## 🚀 Inicio rápido
+
+
+
 ---
 
 # Architecture
@@ -37,8 +42,17 @@ Componentes:
 ##Screenshots
 
 <p align="center">
-  <img src="screenshots/urbetrack-img_01.png" width="30%">
-  <img src="screenshots/urbetrack-img_02.png" width="30%">
-  <img src="screenshots/urbetrack-img_03.png" width="30%">
+  <img src="screenshots/ubt-01.png" width="20%">
+  <img src="screenshots/ubt-02.png" width="20%">
+  <img src="screenshots/ubt-03.png" width="20%">
+  <img src="screenshots/ubt-04.png" width="20%">
 </p>
 
+# comprobaciones con curl en consola:
+
+://urbetrack-md5-challenge2$ curl -X POST localhost:8080/validar_mensaje -H "Content-Type: application/json" -d '{"payload": {"empresa":"UrbeTrack", "name":"Paulo"},"md5": "487dd71db6ca994eafa617b7911406ae"}'
+{"Valido":false,"MD5":"8ddf45693d4185b95732d263fade0be2"}
+
+
+://urbetrack-md5-challenge2$ curl -X POST localhost:8080/validar_mensaje -H "Content-Type: application/json" -d '{"payload": {"empresa":"UrbeTrack", "name":"Paulo"},"md5": "8ddf45693d4185b95732d263fade0be2"}'
+{"Valido":true,"MD5":"8ddf45693d4185b95732d263fade0be2"}
