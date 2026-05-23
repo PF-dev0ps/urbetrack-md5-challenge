@@ -22,18 +22,24 @@ git clone PF-dev0ps/urbetrack-md5-challenge.git
 cd urbetrack-md5-challenge
 
 # 2. Levantar el servicio
-docker compose up -d
+./scripts/start.sh
+
+# 3. Probar API en web:
 
 # 3. Verificar que funciona
 curl http://localhost:8080/health
 
-# 4. Probar el endpoint
+# 4. Bajar el servicio:
+./scripts/stop.sh
+
+# 5. Si quisieras para probar el endpoint desde consola (antes del paso anterior de bajar el servicio por supuesto):
 curl -X POST http://localhost:8080/validar_mensaje \
   -H "Content-Type: application/json" \
   -d '{
     "payload": {"empresa":"UrbeTrack", "name":"Paulo"},
     "md5": "8ddf45693d4185b95732d263fade0be2"
   }'
+
 ```
 ---
 
