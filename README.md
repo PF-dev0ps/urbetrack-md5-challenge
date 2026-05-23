@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a REST API to validate MD5 hashes generated from a JSON input.
+This project implements a REST API to validate at the same time if a MD5 hash is OK with the JSON input recieved.
 
 The solution uses FastAPI and includes:
 
@@ -16,9 +16,13 @@ The solution uses FastAPI and includes:
 
 
 
-## 🚀 Inicio rápido
+## Quick start:
 
-
+### 1. Clonar e instalar
+```bash
+git clone https://github.com/tu-usuario/mi-solucion.git
+cd mi-solucion
+npm install
 
 ---
 
