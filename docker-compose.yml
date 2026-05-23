@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: urbetrack-md5-api:local
+    image: urbetrack-md5-api:1.0.3
     container_name: urbetrack-md5-api
     expose:
       - "8000"
