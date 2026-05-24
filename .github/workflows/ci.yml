@@ -35,11 +35,11 @@ jobs:
         run: |
           curl -fsS http://localhost:8080/health
 
-      - name: Test validar_mensaje endpoint
+      - name: Test validate_md5 endpoint
         run: |
           curl -fsS \
             -X POST \
-            http://localhost:8080/validar_mensaje \
+            http://localhost:8080/validate_md5 \
             -H "Content-Type: application/json" \
             -d '{
               "payload": {

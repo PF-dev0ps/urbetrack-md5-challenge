@@ -17,7 +17,7 @@ def health_check():
     return {"status": "ok"}
 
 #                                 Endpoint 02 - JSON
-@app.post("/validar_mensaje")
+@app.post("/validate_md5")
 def validate_message(request: NormalizarRequest):
     normalized_json = json.dumps(
         request.payload,
